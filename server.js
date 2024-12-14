@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // MongoDB ConnectionAdmin123
-const mongoURI = 'mongodb+srv://surajrathore8100:Admin123@cluster0.gm6yf.mongodb.net/'; // Replace with your MongoDB URI
+const mongoURI =  process.env.MONGO_URI || 'mongodb+srv://surajrathore8100:Admin123@cluster0.gm6yf.mongodb.net/'; // Replace with your MongoDB URI
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
